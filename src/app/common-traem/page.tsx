@@ -5,7 +5,7 @@ import {
   PLASTIC_TRAEM,
   BIO_TRAEM,
   TRAEM_QTY_PRESETS,
-} from "@/data/products";
+} from "@/data/traem";
 import { formatPrice, cn } from "@/lib/utils";
 import { useCart } from "@/context/CartContext";
 import type { TraemPackage, TraemItemQty } from "@/types";
@@ -17,32 +17,27 @@ const OPTIONS: {
   label: string;
   badge: string;
   pkg: TraemPackage;
-  accent: string;
 }[] = [
   {
     id: "plastic",
     label: "Plastic Disposable Items",
     badge: "Option 1",
     pkg: PLASTIC_TRAEM,
-    accent: "border-charcoal/20",
   },
   {
     id: "bio",
     label: "Biodegradable Disposable Items",
     badge: "Option 2",
     pkg: BIO_TRAEM,
-    accent: "border-emerald-600/30",
   },
 ];
 
 function QtyPanel({
   pkg,
   traemType,
-  onAdded,
 }: {
   pkg: TraemPackage;
   traemType: string;
-  onAdded: () => void;
 }) {
   const { addTraem } = useCart();
   const [qty, setQty] = useState(20);
@@ -72,7 +67,6 @@ function QtyPanel({
       traemType
     );
     setAdded(true);
-    onAdded();
     setTimeout(() => setAdded(false), 2200);
   };
 
@@ -256,7 +250,6 @@ export default function CommonTraemPage() {
                       traemType={
                         opt.id === "plastic" ? "common-plastic" : "common-bio"
                       }
-                      onAdded={() => {}}
                     />
                   </div>
                 )}
@@ -267,7 +260,10 @@ export default function CommonTraemPage() {
 
         <p className="mt-8 rounded-xl border border-dashed border-border bg-cream-dark/60 px-5 py-4 text-center text-sm text-muted">
           Need a custom basket with chocolates, dry fruits or gifts? Use{" "}
-          <a href="/build-tokri" className="font-medium text-crimson underline-offset-2 hover:underline">
+          <a
+            href="/build-tokri"
+            className="font-medium text-crimson underline-offset-2 hover:underline"
+          >
             Build Your Tokri
           </a>{" "}
           — fully customizable. Traem packages above are fixed sets only.
