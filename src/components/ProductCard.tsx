@@ -29,6 +29,8 @@ export default function ProductCard({ product, className }: Props) {
       ? "placeholder-wedding"
       : product.mainCategory === "dry-fruits"
       ? "placeholder-dryfruit"
+      : product.mainCategory === "chocolates"
+      ? "placeholder-chocolate"
       : "placeholder-bag";
 
   return (
@@ -52,6 +54,8 @@ export default function ProductCard({ product, className }: Props) {
               ? "🍽"
               : product.mainCategory === "dry-fruits"
               ? "🥜"
+              : product.mainCategory === "chocolates"
+              ? "🍫"
               : "🛍"}
           </span>
         </div>
