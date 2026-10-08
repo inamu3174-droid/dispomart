@@ -6,9 +6,16 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <h3 className="font-serif text-2xl font-semibold tracking-wide">
-              DISPOMART
-            </h3>
+            <Link href="/" aria-label="DispoMart – Home" className="inline-block">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/api/brand/logo"
+                alt="DispoMart – Since 2026"
+                width={160}
+                height={128}
+                className="h-14 w-auto rounded-lg bg-cream object-contain p-1.5"
+              />
+            </Link>
             <p className="text-sm leading-relaxed text-stone-300">
               Everything You Need, Under One Roof.
             </p>
@@ -65,7 +72,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-stone-700 pt-8 sm:flex-row">
           <p className="text-xs text-stone-500">
-            © {new Date().getFullYear()} DISPOMART. All rights reserved.
+            © {new Date().getFullYear()} DispoMart. All rights reserved.
           </p>
         </div>
       </div>
