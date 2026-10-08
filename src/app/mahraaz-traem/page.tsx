@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MAHRAAZ_TRAEM, TRAEM_QTY_PRESETS } from "@/data/products";
+import { MAHRAAZ_TRAEM, TRAEM_QTY_PRESETS } from "@/data/traem";
 import { formatPrice, cn } from "@/lib/utils";
 import { useCart } from "@/context/CartContext";
 import type { TraemItemQty } from "@/types";
@@ -114,7 +114,7 @@ export default function MahraazTraemPage() {
                 Each selection is a complete Mahraaz Traem set.
               </p>
 
-              <div className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-3">
+              <div className="mt-5 grid grid-cols-3 gap-2">
                 {TRAEM_QTY_PRESETS.map((n) => (
                   <button
                     key={n}
