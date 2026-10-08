@@ -43,6 +43,17 @@ export type MainCategory =
   | "wedding"
   | "dry-fruits"
   | "bags"
+  | "chocolates"
+  | "other";
+
+/** Groups used inside Build Your Tokri — admin can add products to any group */
+export type TokriGroup =
+  | "chocolates"
+  | "dry-fruits"
+  | "kahwa"
+  | "biscuits"
+  | "candies"
+  | "premium-gifts"
   | "other";
 
 export interface Product {
@@ -66,6 +77,14 @@ export interface Product {
   isBasket?: boolean;
   basketSize?: "small" | "medium" | "large";
   dimensions?: string;
+  /** Brand (Cadbury, Nestlé, etc.) — for filtering & admin display */
+  brand?: string;
+  /** Whether this product can be added inside a custom Tokri */
+  tokriFillable?: boolean;
+  /** Sub-group inside the Tokri builder (Chocolates, Dry Fruits, …) */
+  tokriGroup?: TokriGroup;
+  /** Variant label e.g. "45g", "Silk 60g" — admin-editable */
+  variant?: string;
 }
 
 export interface BasketOption {

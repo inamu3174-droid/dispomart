@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand palette – warm off-white, charcoal, deep crimson, muted gold */
   --color-cream: #faf7f2;
   --color-cream-dark: #f3ede4;
   --color-charcoal: #1c1917;
@@ -89,6 +88,50 @@ textarea {
   animation: fadeUp 0.5s ease forwards;
 }
 
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-1 {
+  animation: heroFade 0.7s ease 0.05s both;
+}
+.hero-fade-2 {
+  animation: heroFade 0.75s ease 0.18s both;
+}
+.hero-fade-3 {
+  animation: heroFade 0.8s ease 0.32s both;
+}
+.hero-fade-4 {
+  animation: heroFade 0.75s ease 0.48s both;
+}
+.hero-fade-5 {
+  animation: heroFade 0.7s ease 0.62s both;
+}
+
+.hero-image-frame {
+  animation: heroFade 1s ease 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-1,
+  .hero-fade-2,
+  .hero-fade-3,
+  .hero-fade-4,
+  .hero-fade-5,
+  .hero-image-frame {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .img-hover {
   transition: transform 0.4s ease;
 }
@@ -127,8 +170,10 @@ textarea {
 .placeholder-bag {
   background: linear-gradient(145deg, #f0fdf4 0%, #bbf7d0 100%);
 }
+.placeholder-chocolate {
+  background: linear-gradient(145deg, #fef3c7 0%, #d6b48a 100%);
+}
 
-/* Hide scrollbar for horizontal category chips */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
