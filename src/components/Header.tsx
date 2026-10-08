@@ -56,13 +56,19 @@ export default function Header() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between lg:h-18">
-            <Link href="/" className="flex flex-col leading-none">
-              <span className="font-serif text-2xl font-semibold tracking-wide text-charcoal">
-                DISPOMART
-              </span>
-              <span className="hidden text-[10px] uppercase tracking-[0.2em] text-muted sm:block">
-                Everything Under One Roof
-              </span>
+            <Link
+              href="/"
+              className="flex shrink-0 items-center"
+              aria-label="DispoMart – Home"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/api/brand/logo"
+                alt="DispoMart – Since 2026"
+                width={150}
+                height={120}
+                className="h-10 w-auto object-contain sm:h-12 lg:h-14"
+              />
             </Link>
 
             <nav className="hidden items-center gap-1 lg:flex">
@@ -113,10 +119,17 @@ export default function Header() {
               </button>
               <Link
                 href="/account"
-                className="hidden h-10 w-10 items-center justify-center rounded-full text-charcoal hover:bg-cream-dark sm:flex"
-                aria-label="Account"
+                className="relative hidden h-10 w-10 overflow-hidden rounded-full border border-border bg-cream sm:flex"
+                aria-label="DispoMart account"
               >
-                <UserIcon />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/api/brand/logo"
+                  alt="DispoMart profile"
+                  width={40}
+                  height={40}
+                  className="h-full w-full object-cover"
+                />
               </Link>
               <button
                 type="button"
@@ -198,14 +211,6 @@ function CartIcon() {
       <circle cx="9" cy="20" r="1" />
       <circle cx="18" cy="20" r="1" />
       <path d="M6 6L5 2H2" />
-    </svg>
-  );
-}
-function UserIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
     </svg>
   );
 }
