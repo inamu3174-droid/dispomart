@@ -7,15 +7,15 @@ export const metadata = {
 export default function AccountPage() {
   return (
     <div className="mx-auto max-w-lg px-4 py-16 text-center">
-      <div className="mx-auto mb-6 flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border border-border bg-cream shadow-sm">
-        {/* Official DispoMart logo as default profile DP */}
+      <div className="mx-auto mb-6 flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border border-border bg-cream p-2 shadow-sm">
+        {/* Official DispoMart logo as default profile DP – exact uploaded asset */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/api/brand/logo"
           alt="DispoMart – Since 2026"
           width={112}
           height={112}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
         />
       </div>
       <h1 className="font-serif text-2xl font-semibold text-charcoal">
