@@ -24,12 +24,13 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: {
     default:
-      "DISPOMART | Wedding Supplies, Traem & Custom Tokri – Anantnag, Kashmir",
-    template: "%s | DISPOMART Anantnag",
+      "DispoMart | Wedding Supplies, Traem & Custom Tokri – Anantnag, Kashmir",
+    template: "%s | DispoMart Anantnag",
   },
   description:
-    "DISPOMART – Your trusted destination in Mattan Chowk, Anantnag for wedding Traem, custom Tokri, disposable supplies, dry fruits, bags and everyday essentials. Everything you need, under one roof.",
+    "DispoMart – Your trusted destination in Mattan Chowk, Anantnag for wedding Traem, custom Tokri, disposable supplies, dry fruits, bags and everyday essentials. Everything you need, under one roof. Since 2026.",
   keywords: [
+    "DispoMart Anantnag",
     "DISPOMART Anantnag",
     "Wedding supplies Anantnag",
     "Wedding disposable items Kashmir",
@@ -43,12 +44,27 @@ export const metadata: Metadata = {
     "Tokri Kashmir",
     "Wedding packaging Anantnag",
   ],
+  icons: {
+    icon: [
+      { url: "/api/brand/favicon", sizes: "32x32", type: "image/png" },
+      { url: "/api/brand/icon-192", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/api/brand/icon-192", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
-    title: "DISPOMART | Everything You Need, Under One Roof",
+    title: "DispoMart | Everything You Need, Under One Roof",
     description:
-      "Wedding Traem, custom Tokri, disposables, dry fruits & more – serving Anantnag & Kashmir.",
+      "Wedding Traem, custom Tokri, disposables, dry fruits & more – serving Anantnag & Kashmir. Since 2026.",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/api/brand/logo",
+        width: 280,
+        height: 224,
+        alt: "DispoMart – Since 2026",
+      },
+    ],
   },
   robots: { index: true, follow: true },
 };
