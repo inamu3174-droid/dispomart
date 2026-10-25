@@ -67,6 +67,46 @@ export const metadata: Metadata = {
     ],
   },
   robots: { index: true, follow: true },
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://dispomart.vercel.app"
+  ),
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "DispoMart",
+  description:
+    "Wedding supplies, Traem, custom Tokri, dry fruits and packaging in Anantnag, Kashmir.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Mattan Chowk",
+    addressLocality: "Anantnag",
+    addressRegion: "Jammu and Kashmir",
+    addressCountry: "IN",
+  },
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://dispomart.vercel.app",
+  email: "inamu3174@gmail.com",
+  areaServed: "Anantnag",
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "DispoMart",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://dispomart.vercel.app",
+  logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://dispomart.vercel.app"}/api/brand/logo`,
+  email: "inamu3174@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Mattan Chowk",
+    addressLocality: "Anantnag",
+    addressRegion: "Jammu and Kashmir",
+    addressCountry: "IN",
+  },
 };
 
 export default function RootLayout({
@@ -79,6 +119,20 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable} h-full`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col font-sans antialiased">
         <CartProvider>
           <Header />
