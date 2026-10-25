@@ -13,6 +13,7 @@ import {
 import { saveOrder } from "@/lib/order-store";
 import type { CartItem } from "@/types";
 
+/** Very simple in-memory rate limit (per IP, 5 orders / 10 min) */
 const rateMap = new Map<string, { count: number; reset: number }>();
 
 function rateLimit(ip: string): boolean {
@@ -43,8 +44,9 @@ export async function POST(req: NextRequest) {
 
     const body = await req.json();
 
+    // Honeypot spam field — must be empty
     if (body.website || body.company_url) {
-      return NextResponse.json({ ok: true, orderId: "OK" });
+      return NextResponse.json({ ok: true, orderId: "OK" }); // silent drop
     }
 
     const customer: OrderCustomer = {
@@ -95,8 +97,10 @@ export async function POST(req: NextRequest) {
       total,
     };
 
+    // Persist first (best-effort)
     await saveOrder(order);
 
+    // Admin notification — always to configured admin email
     const adminResult = await sendEmailViaResend({
       to: ADMIN_EMAIL,
       subject: `[DispoMart] New order ${order.id} – ${customer.fullName}`,
@@ -105,6 +109,7 @@ export async function POST(req: NextRequest) {
     });
 
     if (!adminResult.ok) {
+      // If email fails, still return order id but flag failure so UI can warn
       console.error("[orders] admin email failed:", adminResult.error);
       return NextResponse.json(
         {
@@ -120,6 +125,7 @@ export async function POST(req: NextRequest) {
 
     order.emailSent = true;
 
+    // Customer confirmation (non-blocking failure)
     const custResult = await sendEmailViaResend({
       to: customer.email,
       subject: `DispoMart – Order request ${order.id} received`,
@@ -130,6 +136,7 @@ export async function POST(req: NextRequest) {
       console.warn("[orders] customer email failed:", custResult.error);
     }
 
+    // Re-save with email flags
     await saveOrder(order);
 
     return NextResponse.json({
