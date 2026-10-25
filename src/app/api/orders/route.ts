@@ -13,17 +13,20 @@ import {
 import { saveOrder } from "@/lib/order-store";
 import type { CartItem } from "@/types";
 
-/** Very simple in-memory rate limit (per IP, 5 orders / 10 min) */
+/** In-memory rate limit (per IP). Soft limit for spam protection.
+ * On serverless each instance has its own map, so this is best-effort. */
 const rateMap = new Map<string, { count: number; reset: number }>();
 
 function rateLimit(ip: string): boolean {
   const now = Date.now();
+  const windowMs = 15 * 60 * 1000; // 15 minutes
+  const maxRequests = 20; // allow testing + normal use
   const entry = rateMap.get(ip);
   if (!entry || now > entry.reset) {
-    rateMap.set(ip, { count: 1, reset: now + 10 * 60 * 1000 });
+    rateMap.set(ip, { count: 1, reset: now + windowMs });
     return true;
   }
-  if (entry.count >= 5) return false;
+  if (entry.count >= maxRequests) return false;
   entry.count += 1;
   return true;
 }
