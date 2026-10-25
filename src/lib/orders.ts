@@ -245,9 +245,11 @@ export async function sendEmailViaResend(opts: {
       error: "RESEND_API_KEY is not configured. Add it in Vercel environment variables.",
     };
   }
+  // Free/onboarding Resend keys only allow from: onboarding@resend.dev
+  // until you verify your own domain.
   const from =
     process.env.RESEND_FROM_EMAIL ||
-    "DispoMart Orders <onboarding@resend.dev>";
+    "onboarding@resend.dev";
   try {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
