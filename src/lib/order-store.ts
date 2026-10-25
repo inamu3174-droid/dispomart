@@ -24,9 +24,11 @@ export async function saveOrder(order: StoredOrder): Promise<void> {
       list = [];
     }
     list.unshift(order);
+    // Keep last 500 orders on disk
     if (list.length > 500) list = list.slice(0, 500);
     await fs.writeFile(ORDERS_FILE, JSON.stringify(list, null, 2), "utf8");
   } catch (err) {
+    // Non-fatal on serverless read-only FS — order still emailed
     console.warn("[order-store] could not persist order file:", err);
   }
 }
