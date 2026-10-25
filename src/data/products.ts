@@ -1,4 +1,4 @@
-import { Product, BasketOption, TraemPackage } from "@/types";
+import { Product, BasketOption } from "@/types";
 import { CHOCOLATE_PRODUCTS } from "./chocolates";
 
 export const BASKET_OPTIONS: BasketOption[] = [
@@ -41,41 +41,20 @@ export const PRODUCTS: Product[] = [
   { id: "p-biscuit-1", slug: "premium-biscuits", name: "Premium Biscuits Assortment", description: "Selection of fine biscuits for gift baskets.", price: 280, unit: "pack", category: "biscuits", mainCategory: "other", image: "/images/other/biscuits.jpg", inStock: true, stockQty: 70, tokriFillable: true, tokriGroup: "biscuits", tags: ["biscuits", "snacks", "tokri"] },
 ];
 
-export const MAHRAAZ_PACKAGES: TraemPackage[] = [
-  { id: "mh-basic", name: "Mahraaz Traem – Basic", type: "basic", guestCount: 50, price: 4500, description: "Essential set for smaller Mahraaz gatherings.", items: [
-    { productId: "p-cups-1", quantity: 1, name: "Disposable Cups (100)" },
-    { productId: "p-plates-1", quantity: 1, name: "Disposable Plates (100)" },
-    { productId: "p-bowls-1", quantity: 1, name: "Disposable Bowls (100)" },
-    { productId: "p-goshtab-1", quantity: 1, name: "Goshtab Cups (100)" },
-    { productId: "p-spoons-1", quantity: 1, name: "Spoons (100)" },
-  ]},
-  { id: "mh-standard", name: "Mahraaz Traem – Standard", type: "standard", guestCount: 100, price: 8200, description: "Complete standard package for typical Mahraaz events.", items: [
-    { productId: "p-cups-1", quantity: 2, name: "Disposable Cups (200)" },
-    { productId: "p-plates-1", quantity: 2, name: "Disposable Plates (200)" },
-    { productId: "p-bowls-1", quantity: 2, name: "Disposable Bowls (200)" },
-    { productId: "p-salad-1", quantity: 2, name: "Salad Plates (200)" },
-    { productId: "p-goshtab-1", quantity: 2, name: "Goshtab Cups (200)" },
-    { productId: "p-wazwaan-1", quantity: 2, name: "Wazwaan Paper (100)" },
-    { productId: "p-spoons-1", quantity: 2, name: "Spoons (200)" },
-  ]},
-  { id: "mh-premium", name: "Mahraaz Traem – Premium", type: "premium", guestCount: 200, price: 15500, description: "Premium full set with higher quantities and extras for large Mahraaz celebrations.", items: [
-    { productId: "p-cups-1", quantity: 4, name: "Disposable Cups (400)" },
-    { productId: "p-plates-1", quantity: 4, name: "Disposable Plates (400)" },
-    { productId: "p-bowls-1", quantity: 3, name: "Disposable Bowls (300)" },
-    { productId: "p-salad-1", quantity: 4, name: "Salad Plates (400)" },
-    { productId: "p-goshtab-1", quantity: 4, name: "Goshtab Cups (400)" },
-    { productId: "p-wazwaan-1", quantity: 4, name: "Wazwaan Paper (200)" },
-    { productId: "p-spoons-1", quantity: 4, name: "Spoons (400)" },
-    { productId: "p-glasses-1", quantity: 3, name: "Glasses (300)" },
-  ]},
-];
+export {
+  TRAEM_QTY_PRESETS,
+  MAHRAAZ_TRAEM,
+  PLASTIC_TRAEM,
+  BIO_TRAEM,
+  MAHRAAZ_PACKAGES,
+} from "./traem";
 
 export const SITE_SETTINGS = {
-  whatsappNumber: "",
   storeName: "DISPOMART",
   address: "Mattan Chowk, Anantnag, Kashmir",
   phone: "",
-  email: "",
+  email: "inamu3174@gmail.com",
+  adminEmail: "inamu3174@gmail.com",
 };
 
 export function getProductById(id: string): Product | undefined {
