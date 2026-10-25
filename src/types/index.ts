@@ -46,7 +46,6 @@ export type MainCategory =
   | "chocolates"
   | "other";
 
-/** Groups used inside Build Your Tokri — admin can add products to any group */
 export type TokriGroup =
   | "chocolates"
   | "dry-fruits"
@@ -77,13 +76,9 @@ export interface Product {
   isBasket?: boolean;
   basketSize?: "small" | "medium" | "large";
   dimensions?: string;
-  /** Brand (Cadbury, Nestlé, etc.) — for filtering & admin display */
   brand?: string;
-  /** Whether this product can be added inside a custom Tokri */
   tokriFillable?: boolean;
-  /** Sub-group inside the Tokri builder (Chocolates, Dry Fruits, …) */
   tokriGroup?: TokriGroup;
-  /** Variant label e.g. "45g", "Silk 60g" — admin-editable */
   variant?: string;
 }
 
@@ -180,13 +175,12 @@ export interface Order {
     | "completed"
     | "cancelled";
   createdAt: string;
-  whatsappMessage?: string;
 }
 
 export interface SiteSettings {
-  whatsappNumber: string;
   storeName: string;
   address: string;
   phone: string;
   email?: string;
+  adminEmail?: string;
 }
