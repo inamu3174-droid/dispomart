@@ -5,6 +5,7 @@ export default function Footer() {
     <footer className="border-t border-border bg-charcoal text-cream">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
           <div className="space-y-4">
             <Link href="/" aria-label="DispoMart – Home" className="inline-block">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -29,32 +30,86 @@ export default function Footer() {
               Submit an order
             </Link>
           </div>
+
+          {/* Shop */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-stone-200">
               Shop
             </h4>
             <ul className="space-y-2.5 text-sm text-stone-400">
-              <li><Link href="/shop" className="hover:text-cream">All Products</Link></li>
-              <li><Link href="/build-tokri" className="hover:text-cream">Build Your Tokri</Link></li>
-              <li><Link href="/mahraaz-traem" className="hover:text-cream">Mahraaz Traem</Link></li>
-              <li><Link href="/common-traem" className="hover:text-cream">Common Traem</Link></li>
-              <li><Link href="/dry-fruits" className="hover:text-cream">Dry Fruits</Link></li>
-              <li><Link href="/bags" className="hover:text-cream">Bags & Packaging</Link></li>
+              <li>
+                <Link href="/shop" className="hover:text-cream">
+                  All Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/build-tokri" className="hover:text-cream">
+                  Build Your Tokri
+                </Link>
+              </li>
+              <li>
+                <Link href="/mahraaz-traem" className="hover:text-cream">
+                  Mahraaz Traem
+                </Link>
+              </li>
+              <li>
+                <Link href="/common-traem" className="hover:text-cream">
+                  Common Traem
+                </Link>
+              </li>
+              <li>
+                <Link href="/dry-fruits" className="hover:text-cream">
+                  Dry Fruits
+                </Link>
+              </li>
+              <li>
+                <Link href="/bags" className="hover:text-cream">
+                  Bags & Packaging
+                </Link>
+              </li>
             </ul>
           </div>
+
+          {/* Company */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-stone-200">
               Company
             </h4>
             <ul className="space-y-2.5 text-sm text-stone-400">
-              <li><Link href="/about" className="hover:text-cream">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-cream">Contact</Link></li>
-              <li><Link href="/shipping" className="hover:text-cream">Shipping & Delivery</Link></li>
-              <li><Link href="/returns" className="hover:text-cream">Returns & Refunds</Link></li>
-              <li><Link href="/privacy" className="hover:text-cream">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-cream">Terms & Conditions</Link></li>
+              <li>
+                <Link href="/about" className="hover:text-cream">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-cream">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/shipping" className="hover:text-cream">
+                  Shipping & Delivery
+                </Link>
+              </li>
+              <li>
+                <Link href="/returns" className="hover:text-cream">
+                  Returns & Refunds
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="hover:text-cream">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-cream">
+                  Terms & Conditions
+                </Link>
+              </li>
             </ul>
           </div>
+
+          {/* Visit */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-stone-200">
               Visit Us
@@ -71,6 +126,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
+
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-stone-700 pt-8 sm:flex-row">
           <p className="text-xs text-stone-500">
             © {new Date().getFullYear()} DISPOMART. All rights reserved.
