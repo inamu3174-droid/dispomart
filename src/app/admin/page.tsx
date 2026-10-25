@@ -19,7 +19,7 @@ export default function AdminPage() {
           "Orders list & status updates",
           "Custom Tokri orders + reference images",
           "Customers",
-          "Site settings (WhatsApp number, etc.)",
+          "Site settings (admin email, store details)",
         ].map((item) => (
           <div
             key={item}
@@ -38,19 +38,11 @@ export default function AdminPage() {
             <code className="text-xs">src/types</code>
           </li>
           <li>
-            Cart and Tokri state use React context + localStorage (ready to
-            swap for API)
+            Order emails go to inamu3174@gmail.com via Resend (RESEND_API_KEY)
           </li>
           <li>
-            Next.js API routes or a separate backend can be wired to these types
-          </li>
-          <li>
-            Order statuses: New → Confirmed → Preparing → Ready → Out for
-            Delivery → Completed / Cancelled
-          </li>
-          <li>
-            Custom Tokri orders should store basket, items, customization,
-            message, and uploaded reference image
+            Orders are stored under <code className="text-xs">data/orders.json</code>{" "}
+            when the filesystem allows it
           </li>
         </ul>
       </div>

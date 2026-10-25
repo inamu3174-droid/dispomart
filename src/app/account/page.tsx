@@ -8,7 +8,6 @@ export default function AccountPage() {
   return (
     <div className="mx-auto max-w-lg px-4 py-16 text-center">
       <div className="mx-auto mb-6 flex h-28 w-28 items-center justify-center overflow-hidden rounded-full border border-border bg-cream p-2 shadow-sm">
-        {/* Official DispoMart logo as default profile DP – exact uploaded asset */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/api/brand/logo"
@@ -25,8 +24,8 @@ export default function AccountPage() {
         Since 2026 · Mattan Chowk, Anantnag
       </p>
       <p className="mt-6 text-sm leading-relaxed text-muted">
-        Customer accounts will be available soon. For orders and enquiries, use
-        WhatsApp or visit our store.
+        Customer accounts will be available soon. For orders, use the checkout
+        form on this website or visit our store at Mattan Chowk, Anantnag.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Link

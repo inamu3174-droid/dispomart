@@ -22,14 +22,13 @@ export default function Footer() {
             <p className="text-sm text-stone-400">
               Mattan Chowk, Anantnag, Kashmir
             </p>
-            <a
-              href="#whatsapp"
-              className="inline-flex items-center gap-2 rounded-full bg-green-700 px-4 py-2 text-sm font-medium text-white hover:bg-green-600"
+            <Link
+              href="/checkout"
+              className="inline-flex items-center gap-2 rounded-full bg-crimson px-4 py-2 text-sm font-medium text-white hover:bg-crimson-dark"
             >
-              Order on WhatsApp
-            </a>
+              Submit an order
+            </Link>
           </div>
-
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-stone-200">
               Shop
@@ -43,7 +42,6 @@ export default function Footer() {
               <li><Link href="/bags" className="hover:text-cream">Bags & Packaging</Link></li>
             </ul>
           </div>
-
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-stone-200">
               Company
@@ -51,11 +49,12 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-stone-400">
               <li><Link href="/about" className="hover:text-cream">About Us</Link></li>
               <li><Link href="/contact" className="hover:text-cream">Contact</Link></li>
+              <li><Link href="/shipping" className="hover:text-cream">Shipping & Delivery</Link></li>
+              <li><Link href="/returns" className="hover:text-cream">Returns & Refunds</Link></li>
               <li><Link href="/privacy" className="hover:text-cream">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-cream">Terms & Conditions</Link></li>
             </ul>
           </div>
-
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-stone-200">
               Visit Us
@@ -67,12 +66,14 @@ export default function Footer() {
             <p className="mt-4 text-sm text-stone-500">
               Serving Anantnag & surrounding areas
             </p>
+            <p className="mt-2 text-sm text-stone-500">
+              Orders: submitted online, confirmed by the shop
+            </p>
           </div>
         </div>
-
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-stone-700 pt-8 sm:flex-row">
           <p className="text-xs text-stone-500">
-            © {new Date().getFullYear()} DispoMart. All rights reserved.
+            © {new Date().getFullYear()} DISPOMART. All rights reserved.
           </p>
         </div>
       </div>
