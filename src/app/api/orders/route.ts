@@ -114,12 +114,16 @@ export async function POST(req: NextRequest) {
     if (!adminResult.ok) {
       // If email fails, still return order id but flag failure so UI can warn
       console.error("[orders] admin email failed:", adminResult.error);
+      const detail = adminResult.error || "unknown email error";
       return NextResponse.json(
         {
           ok: false,
           error:
-            "We could not send the order notification. Please try again or contact the shop directly.",
-          detail: adminResult.error,
+            "We could not send the order notification. " +
+            (detail.includes("RESEND_API_KEY")
+              ? "Email service is not configured (missing RESEND_API_KEY)."
+              : "Email service error — check Vercel logs or Resend dashboard."),
+          detail,
           orderId: order.id,
         },
         { status: 502 }
